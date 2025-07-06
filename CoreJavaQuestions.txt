@@ -1,0 +1,740 @@
+Q 1 can we declare main method non-static
+    🔔NO
+    🔔we cant call it anywhere in program
+    🔔"JVM does not support it.it gives error while compiling 
+    🔔Main method is not static in class Sample, please define the main method as − public static void main(String[] args)"
+
+
+
+Q 2 what happen behind the scene if a constructor is not explicity specified
+    🔔explicitly means constructor is applied externally
+    🔔if constructor is not explicitly applied it automatically come in process
+
+
+
+Q 3 can i apply static anywhere apart from variables
+    🔔yes
+    🔔methods can be static .main method is always static so that we can call everyewhere in code.
+    🔔static method should contain static variable only otherwise it gives error.
+
+
+
+Q 4 which verification is carried out by the bytecode verifier	
+    🔔The bytecode verifier travel through the bytecodes, constructs the type state information, and verifies the types of the parameters to all the bytecode instructions.
+    🔔The bytecode verifier acts as a sort of gatekeeper: 
+    🔔it ensures that code passed to the Java interpreter is in a fit state to be executed and can run without fear of breaking the Java interpreter.
+    🔔Imported code is not allowed to execute by any means until after it has passed the verifier's tests.
+    	
+
+
+Q 5 what are java objects and java applications
+    🔔Java is an object-oriented programming language.
+    🔔Everything in Java is associated with classes and objects, along with its attributes and methods
+    🔔To create a class, use the keyword class
+    🔔In Java, an object is created from a class
+    🔔You can create multiple objects of one class
+    🔔You can also create an object of a class and access it in another class
+
+
+
+
+Q 6 what are legacy class
+    1.dictionary
+      An abstract class in nature assigned to hold values as the value pair
+    2.hashtable
+      It is a large part of the java.util package that is an extension to the dictionary class
+    3.properties
+      Properties class extends Hashtable class to maintain the list of values. The list has both the key and the value of type string
+    4.vector
+      Identical to the ArrayList 
+      this class is mainly used by programmers who aren’t sure about the array’s length  
+    5.stack
+      it is an extension to the vector class
+   
+
+Q 7 why cant a static method access non-static member
+    🔔A static method is a method that belongs to a class
+    🔔this method can be called without the instance or object of that class.
+    🔔For the non-static variable, there is a need for an object instance to call the variables.
+    🔔We can also create multiple objects by assigning different values for that non-static variable. So, different objects may have different values for the same variable
+
+Q 8 discuss the various level access protection available for packages and their implementation
+    🔔In java, the access modifiers define the accessibility of the class and its members. For example, private members are accessible within the same class members only.
+      Java has four access modifiers, and they are default, private, protected, and public.
+    🔔In java, the package is a container of classes, sub-classes, interfaces, and sub-packages. The class acts as a container of data and methods.
+      So, the access modifier decides the accessibility of class members across the different packages.
+    🔔In java, the accessibility of the members of a class or interface depends on its access specifiers.
+      The following table provides information about the visibility of both data members and methods
+    🔔The public members can be accessed everywhere.
+
+    🔔 The private members can be accessed only inside the same class.
+
+    🔔 The protected members are accessible to every child class (same package or other packages).
+
+    🔔 The default members are accessible within the same package but not outside the package.
+
+Q 9 how can i increase a heap memory of JVM
+    🔔The Java Virtual Machine takes two command line arguments which set the initial and maximum heap sizes: 
+      -Xms and -Xmx. You can add a system environment variable named _JAVA_OPTIONS, and set the heap size values there.
+      For example if you want a 512Mb initial and 1024Mb maximum heap size you can
+    🔔It is possible to read the default JVM heap size programmatically by using totalMemory() method of Runtime class. Using code to read JVM heap size
+
+Q 10 explain the instanceof operator
+     🔔instanceof is a binary operator we use to test if an object is of a given type. The result of the operation is either true or false.
+       It's also known as a type comparison operator because it compares the instance with the type.
+       Before casting an unknown object, the instanceof check should always be used. Doing this helps to avoid a ClassCastException at runtime.
+       The instanceof operator's basic syntax is:
+     🔔(object) instanceof (type)
+
+Q 11 what are keywords name the few of keywords in java
+     🔔Java has a set of keywords that are reserved words that cannot be used as variables, methods, classes, or any other identifier
+     🔔true, false, and null are not keywords, but they are literals and reserved words that cannot be used as identifiers.
+     🔔abstract	continue	for	new	switch  assert***	default	goto*	package	synchronized
+       boolean	do	if	private	this break	double	implements	protected	throw
+       byte	else	import	public	throws  case	enum****	instanceof	return	transient
+       catch	extends	int	short	try  char	final	interface	static	void
+       class	finally	long	strictfp**	volatile  const*	float	native	super	while
+     🔔these are keywords in java
+
+Q 12 can we use static method to process instance variables
+     🔔Static methods can’t access instance methods and instance variables directly
+     🔔Instance method are methods which require an object of its class to be created before it can be called.
+     🔔Instance method(s) belong to the Object of the class, not to the class i.e. they can be called after creating the Object of the class.
+     🔔Static methods are the methods in Java that can be called without creating an object of class.
+
+Q 13 why constructor is not inherited 
+     🔔Whenever a class (child class) extends another class (parent class), 
+       the sub class inherits state and behavior in the form of variables and methods from its super class but it does not inherit constructor of super class 
+     🔔Constructor is a block of code that allows you to create an object of class and has same name as class with no explicit return type
+     🔔because of following reasons:
+       Constructors are special and have same name as class name.
+          So if constructors were inherited in child class then child class would contain a parent class constructor which is against the constraint
+          that constructor should have same name as class name.
+        if constructors can be inherited then it will be impossible to achieving encapsulation.
+           Because by using a super class’s constructor we can access/initialize private members of a class
+        A parent class constructor is not inherited in child class and this is why super() is added automatically in child class constructor
+
+Q 14 how many objects are created using new keyword and how many objects can created using new keyword multiple times
+     🔔There is no fixed limit to how many objects you can create using the "new" keyword; you can create as many objects as your system's memory allows.
+     🔔The number of objects you can create is determined by the available memory in your system
+
+Q 15 in what scnerio do we use static block
+     🔔At times, there is a class that has static member variables. 
+     🔔These variables need some complicated initialization.
+     🔔At this time static block helps as a tool to initialize complex static member variable initialization.
+     🔔The static block is executed even before the execution of main.
+     🔔Sometimes, we can also replace static block with a static method of class.
+
+Q 16 what are interfaces available in collection framework explain the various interfaces used in collection framework
+     🔔The Collection interface is a member of the Java Collections Framework. It is a part of java.util package. It is one of the root interfaces of the Collection Hierarchy. 
+       The Collection interface is not directly implemented by any class. However, it is implemented indirectly via its subtypes or subinterfaces like List, Queue, and Set. 
+       For Example, the HashSet class implements the Set interface which is a subinterface of the Collection interface.
+     🔔All the Classes of the Collection Framework implement the subInterfaces of the Collection Interface. 
+       All the methods of Collection interfaces are also contained in it’s subinterfaces. These subInterfaces are sometimes called as Collection Types
+       mainly three types of collectiom framework are:
+            1.list
+            2.set
+            3.queue
+              1.list:
+                This is a child interface of the collection interface
+                This also allows duplicate data to be present in it. 
+                This list interface is implemented by various classes like ArrayList, Vector, Stack, etc. 
+                Since all the subclasses implement the list, we can instantiate a list object with any of these classes.
+              2.set
+                A set is an unordered collection of objects in which duplicate values cannot be stored. 
+                This collection is used when we wish to avoid the duplication of the objects and wish to store only the unique objects. 
+                This set interface is implemented by various classes like HashSet, TreeSet, LinkedHashSet, etc. Since all the subclasses implement the set
+              3.queue  
+                As the name suggests, a queue interface maintains the FIFO(First In First Out) order similar to a real-world queue line. 
+                This interface is dedicated to storing all the elements where the order of the elements matter.
+                For example, whenever we try to book a ticket, the tickets are sold at the first come first serve basis
+                There are various classes like PriorityQueue, Deque, ArrayDeque, etc.
+                Since all these subclasses implement the queue, we can instantiate a queue object with any of these classes
+
+Q 17 what is difference between throw and throws keyword
+     1.Definition	
+                 Java throw keyword is used throw an exception explicitly in the code, inside the function or the block of code.	
+                 Java throws keyword is used in the method signature to declare an exception which might be thrown by the function while the execution of the code.
+     2.Type of exception 
+                Using throw keyword, we can only propagate(process)unchecked exception i.e., the checked exception cannot be propagated using throw only.
+        	Using throws keyword, we can declare both checked and unchecked exceptions. However, the throws keyword can be used to propagate checked exceptions only.
+     3.Syntax	
+              The throw keyword is followed by an instance of Exception to be thrown.
+       	      The throws keyword is followed by class names of Exceptions to be thrown.
+     4.Declaration
+                   throw is used within the method.
+        	   throws is used with the method signature.
+     5.Internal implementation
+         	We are allowed to throw only one exception at a time i.e. we cannot throw multiple exceptions.
+        	We can declare multiple exceptions using throws keyword that can be thrown by the method. For example, main() throws IOException, SQLException
+
+Q 18 why does abstract class cannot be instantiated(represent) but have constructor 
+    🔔Abstract class, we have heard that abstract class are classes which can have abstract methods and it can’t be instantiated.
+    🔔We cannot instantiate an abstract class in Java because it is abstract, it is not complete, hence it cannot be used
+    🔔An abstract class is a class declared with an abstract keyword.
+
+Q 19 if you implementes two interfaces and both the interfaces declare similar methods . which method will be invoked . is it permitted(allowed)  
+     🔔if a class implements two interfaces that declare methods with the  same method name and parameter type .
+       it is permitted, but you must provide an implementation of that method in the implementing class. 
+     🔔The method that will be invoked depends on the object's reference type at runtime
+
+Q 20 private member of class inherited by subclass
+     🔔In object-oriented programming, private members of a class are not directly accessible from subclasses. 
+     🔔Private members are meant to be encapsulated and hidden from external access, including subclasses. 
+     🔔This is a fundamental concept in encapsulation, which is one of the pillars of object-oriented programming.
+     🔔Private members are intended to be used within the class they are defined in and should not be directly accessible from outside classes or subclasses
+
+Q 21 Explain the significance of super keyword
+    🔔The super keyword in Java is a reference variable that is used to refer to parent class objects.
+    🔔The keyword “super” came into the picture with the concept of Inheritance
+    🔔super is used to call a superclass constructor: 
+          When a subclass is created, its constructor must call the constructor of its parent class. 
+          This is done using the super() keyword, which calls the constructor of the parent class.
+    🔔super must be the first statement in a constructor:
+          When calling a superclass constructor, the super() statement must be the first statement in the constructor of the subclass
+    🔔super cannot be used in a static context: 
+          The super keyword cannot be used in a static context, such as in a static method or a static variable initializer
+
+Q 22 what is association
+     🔔Association in Java defines the connection between two classes that are set up through their objects. Association manages one-to-one, one-to-many, and many-to-many relationships
+     🔔It shows how objects communicate with each other and how they use the functionality and services provided by that communicated object
+     🔔Association manages one-to-one, one-to-many, many-to-one and many-to-many relationships.
+     🔔one-to-one:
+         A person can have only one passport. It defines the one-to-one
+     🔔one-to-many: 
+         If we talk about the Association between a College and Student, a College can have many students. It defines the one-to-many
+     🔔many-to-one:
+         A state can have several cities, and those cities are related to that single state. It defines the many-to-one
+     🔔many-to-many:
+         A single student can associate with multiple teachers, and multiple students can also be associated with a single teacher.
+         Both are created or deleted independently, so it defines the many-to-many
+
+Q23 how will you define an identifier in java
+    🔔All Java variables must be identified with unique names.
+      These unique names are called identifiers.
+    🔔Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+    🔔The general rules for naming variables are:
+          Names can contain letters, digits, underscores, and dollar signs
+          Names must begin with a letter
+          Names should start with a lowercase letter and it cannot contain whitespace
+          Names can also begin with $ and _
+          Names are case sensitive ("myVar" and "myvar" are different variables)
+          Reserved words (like Java keywords, such as int or boolean) cannot be used as names
+
+Q24 can we use static method to process instance variables
+    🔔We cannot directly access the instance variables within a static method because a static method can only access static variables or static methods
+    🔔An instance variable, as the name suggests is tied to an instance of a class.
+      Therefore, accessing it directly from a static method, which is not tied to any specific instance doesn't make sense.
+      Therefore, to access an instance variable, we must have an instance of the class from which we access the instance variable
+
+Q 25 can constructor be static
+     🔔 Constructor in java is a special type of method which is different from normal java methods/ordinary methods.
+        Constructors are used to initialize an object. Automatically a constructor is called when an object of a class is created.
+        It is syntactically similar to a method but it has the same name as its class and a constructor does not have a return type. 
+     🔔 One of the important property of java constructor is that it can not be static. We know static keyword belongs to a class rather than the object of a class.
+        A constructor is called when an object of a class is created, so no use of the static constructor.
+        Another thing is that if we will declare static constructor then we can not access/call the constructor from a subclass. 
+        Because we know static is allowed within a class but not by a subclass
+
+Q 26 can a non static method access a static variable/method in java
+      🔔 Yes, a non-static method can access a static variable or call a static method in Java. 
+         There is no problem with that because of static members 
+         i.e. both static variable and static methods belongs to a class and can be called from anywhere, depending upon their access modifier.
+     🔔  For example, if a static variable is private then it can only be accessed from the class itself, but you can access a public static variable from anywhere.
+         Similarly, a private static method can be called from a non-static method of the same class but a public static method e.g. main() can be called from anywhere.
+
+Q 27 what is an object in java
+    🔔An object is an instance of a class. A class is a template or blueprint from which objects are created. So, an object is the instance(result) of a class.
+    🔔Object Definitions:
+        An object is a real-world entity.
+        An object is a runtime entity.
+        The object is an entity which has state and behavior.
+        The object is an instance of a class
+    🔔An object has three characteristics
+        State: 
+          represents the data (value) of an object.
+        Behavior:
+          represents the behavior (functionality) of an object such as deposit, withdraw, etc.
+        Identity:
+           An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user.
+           However, it is used internally by the JVM to identify each object uniquely.
+    🔔For Example,
+        Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.
+
+Q 28 can we use super keyword in static method of subclass for calling parent class method
+     🔔In Java, static methods cannot be overidden
+       So, it doesn't depend on the object that it is being referenced. 
+     🔔But instead, it depends on the type of reference. Hence, static method is said to hide another static method and not override it
+     🔔There is no super like keyword for static methods
+
+Q 29 can you give one example of composition and aggregation in java
+    🔔Association is a relation between two separate classes which establishes through their Objects.
+    🔔Association can be one-to-one, one-to-many, many-to-one, many-to-many. 
+    🔔In Object-Oriented programming, an Object communicates to another object to use functionality and services provided by that object.
+    🔔Composition and Aggregation are the two forms of association.
+    🔔Code reuse is best achieved by aggregation.
+    🔔Aggregation:
+        It is a special form of Association where:  
+         It represents Has-A’s relationship.
+         It is a unidirectional association i.e. a one-way relationship.
+         For example, a department can have students but vice versa is not possible and thus unidirectional in nature.
+         In Aggregation, both entries can survive individually which means ending one entity will not affect the other entity.
+    🔔compoition: 
+         Composition is a restricted form of Aggregation in which two entities are highly dependent on each other.  
+         It represents part-of relationship.
+         In composition, both entities are dependent on each other.
+         When there is a composition between two entities, the composed object cannot exist without the other entity.
+         Example Library
+                 vechile - engine tyre
+   
+
+Q 30 what are difference between this and super keyword
+    Super Keyword:
+        🔔A reserved keyword used to call the base class method or variable is known as a super keyword.
+        🔔We cannot use the super keyword as an identifier. The super keyword is not only used to refer to the base class instance but also static members too
+        🔔The super() is mainly used for invoking base class member functions and constructors
+    This Keyword:
+        🔔It is a reserved keyword in Java that is used to refer to the current class object. It is a reference variable through which the method is called. Other uses of this keyword are
+        🔔We can use it to refer current class instance variable.
+        🔔We can use it to invoke the current class method (implicitly).
+        🔔We can pass it as an argument in the method and constructor calls.
+        🔔We can also use it for returning the current class instance from the method.
+        🔔The constructor is used to call one constructor from the other of the same class
+
+Q 31 is it allowed to declare main method as final
+     🔔Yes, you can mark main final.
+     🔔While it is possible, it is not really meaningful
+     🔔However, it has an effect when actually hiding 
+     🔔Marking main as final will result in no subclass being able to hide your method anymore
+     🔔when we use inheritance concept. we cannot declare the main method as final. if it is parent class.
+     🔔But you can declare the final method in child class main method.
+
+Q 32 how are object properties assigned in java
+     🔔In Java object properties are assigned using special functions called constructors and setters.
+     🔔Constructors are like recipes that create new objects and initialize their properties with certain values. You can think of them as the blueprint for creating objects.
+
+Q 33 can constructor and private can be overriden
+     Constructor-:
+        🔔If super class and sub class have same methods including name, return type and parameters, and if you try to call it using the object of the sub class
+             Then the method in the sub class is invoked.
+        🔔Constructor looks like method but it is not. It does not have a return type and its name is same as the class name.
+        🔔But, a constructor cannot be overridden. 
+             If you try to write a super class’s constructor in the sub class compiler treats it as a method and expects a return type and generates a compile time error.
+     Private-:
+        🔔Private methods are not visible to subclasses, and they are not inherited. 
+            Therefore, they cannot be overridden in the same way as instance methods. 
+        🔔If a subclass declares a private method with the same signature as a private method in the superclass, it is considered a new method in the subclass, not an override.
+
+Q 34 are we allowed to override static method in java
+     🔔Overriding is a feature of OOP languages like Java that is related to run-time polymorphism. 
+         A subclass (or derived class) provides a specific implementation of a method in the superclass (or base class). 
+     🔔the signatures of both methods must be the same
+     🔔‘Yes’. We can have two or more static methods with the same name, but differences in input parameters
+
+Q 35 why cant this and super method both be used together in constructor
+     🔔this(...) will call another constructor in the same class whereas super() will call a super constructor.
+     🔔If there is no super() in a constructor the compiler will add one implicitly.
+     🔔Thus if both were allowed you could end up calling the super constructor twice
+
+Q 36 when finally block will not get executed
+     🔔finally block always gets executed, whether the programmer has handled exception in catch block thrown by corresponding try block or not.
+     🔔The finally block will also get executed if a try block exists by using return, break, or continue statements.
+        1. When the System.exit() method is called in the try block before the execution of finally block, finally block will not be executed.
+        2. When the return statement is defined in the finally block, the control of execution is transferred to calling routine,
+              and statements after the return statement in finally block are not executed
+        3.When an exception occurs in the code written in the finally block. In this case, finally block does not complete normally.
+
+Q 37 can we override final methods
+     🔔No, the Methods that are declared as final cannot be Overridden or hidden. For this very reason, a method must be declared as final only when we’re sure that it is complete
+     🔔A method in a subclass is said to Override a method in its superclass if that method has a signature identical to a method in its superclass
+     🔔When this method is called by an object of the subclass, then always the Overridden version will be called.
+           In other words, the method which was Overridden in the superclass will become hidden
+     🔔The JVM has 2 choices, it can either call the original method present in the superclass or the Overridden method present in the subclass.
+          Due to late binding, this decision is taken at run-time and not at compile-time.
+     🔔Methods are declared final in java to prevent subclasses from Overriding them and changing their behavior
+     🔔The advantage of the final keyword is that it stops developers from intentionally or unintentionally changing the behavior of methods that should not be changed for security
+
+Q 38 describe the different types of areas generated by jvm 
+     1.Class Area
+     2.Heap
+     3.Stack
+     4.Program Counter Register
+     5.Native Method Stack
+     1.Class Area    
+           The class method area is the memory block that stores the class code, variable code, method code, and the constructor of a Java program.
+        It stores class-level data
+     2.Heap
+          The Heap area is the memory block where objects are created or objects are stored. Heap memory allocates memory for class interfaces and arrays.
+       It is used to allocate memory to objects at run time
+       But, in current versions of Java static variables and methods are stored in Heap Memory.
+     3.Stack 
+          Each thread has a private JVM stack, created at the same time as the thread. 
+      It is used to store data and partial results which will be needed while returning value for method and performing dynamic linking.
+      Java Stack stores frames and a new frame is created each time at every invocation of the method. A frame is destroyed when its method invocation completes
+    4.Program Counter Register: 
+         Each JVM thread that carries out the task of a specific method has a program counter register associated with it.
+      The non-native method has a PC that stores the address of the available JVM instruction
+      PC register is capable of storing the return address or a native pointer on some specific platform.
+   5.Native method Stacks: 
+         Also called C stacks, native method stacks are not written in Java language. 
+     This memory is allocated for each thread when it’s created And it can be of a fixed
+
+Q 39 how can we access private method of class from outside the class
+     🔔Accessing private methods from outside the class in Java is generally discouraged because it violates encapsulation principles.
+        However, it is possible using Java reflection
+     🔔Java Reflection is a powerful feature that allows you to inspect or modify runtime behavior of classes, interfaces, methods, and fields.
+     🔔Reflection allows you to invoke methods dynamically, even private ones, and pass arguments to them.
+     🔔We can call the private method of a class from another class in Java  We can do this by changing the runtime behavior of the class by using some predefined methods of Java
+     🔔To call the private method, we will use the following methods of Java.lang.class and Java.lang.reflect.Method
+       1.setAccessible()
+       2.invoke()
+
+Q 40 how can you change value of final variable in java
+     🔔In Java, a final variable once assigned cannot be reassigned.This is one of the fundamental principles of the language. 
+     🔔However, there are ways to modify the value of a final variable using reflection, but this should be done with extreme caution
+     🔔However, this is not recommended in practice because it breaks the immutability guarantee provided by final variables and can lead to unexpected behavior in your code.
+     🔔It's important to use such techniques sparingly and only in exceptional cases
+
+Q 41 define right shift operator in java
+     🔔In Java, the right shift operator (>>) is a bitwise operator used to shift the bits of a number to the right
+     🔔Syntax:
+       result = operand >> numBits;
+
+Q 42 what happen if an object is serializable but includes the refrence to a non serializable object in java
+     🔔In Java, if an object is serializable but includes a reference to a non-serializable object, 
+       attempting to serialize the serializable object will result in a NotSerializableException being thrown at runtime.
+     🔔This exception occurs because when you serialize an object, to convert them into a stream of bytes
+     🔔If any referenced object is not serializable , the serialization process cannot proceed, and it throws a NotSerializableException.
+
+Q 43 when does an object become eligible for garbage collection in java
+     🔔In Java, an object becomes eligible for garbage collection when it is no longer reachable or accessible by any live thread in the application
+     🔔Objects typically become eligible for garbage collection under the following conditions:
+         1.Nullifying references: 
+             When all references to an object are set to null, 
+         2.Scope:
+             Local variables and objects created within a method have limited scope.
+             Once the method completes execution, these objects go out of scope and become eligible for garbage collection.
+         3.Circular references: 
+             If a group of objects reference each other in a circular manner, but none of them are accessible from any live thread, they become eligible for garbage collection as a group.
+         4.Class unloading: 
+             If a class is unloaded by the JVM, all objects of that class become unreachable and are eligible for garbage collection.
+
+Q 44 what kind of process is garbage collector thread in java
+     🔔In Java, the garbage collector thread is a background process responsible for managing memory by reclaiming memory occupied by objects that are no longer in use. 
+     🔔It's an integral part of Java's automatic memory management system.
+     🔔The Java Virtual Machine (JVM) has a built-in garbage collector that periodically runs to identify and reclaim memory from objects that are no longer reachable by the program. 
+     🔔The exact behavior and implementation of the garbage collector can vary depending on the JVM implementation and the garbage collection algorithm being used.
+
+Q 45 explain various file operations in brief 
+     🔔In Java, file operations are handled through classes provided in the java.io 
+     🔔Creating a File:
+        Definition: Creating a new file in the file system
+     🔔Opening a File:
+        Definition: Accessing an existing file to read from or write to it.
+     🔔Reading a File:
+        Definition: Retrieving data from a file.
+     🔔Writing to a File:
+        Definition: Adding data to a file, which can either append to or overwrite existing content.
+     🔔Appending to a File:
+        Definition: Adding data to the end of an existing file without altering the existing content.
+     🔔Closing a File:
+        Definition: Finalizing any changes and releasing the file resource.
+     🔔Deleting a File:
+        Definition: Removing a file from the file system.
+
+Q 46 why java provides a garbage collector
+     🔔Java provides a garbage collector to manage memory allocation and deallocation automatically, relieving developers from the responsibility of manual memory management.
+     🔔Automatic Memory Management:
+        Definition: Garbage collection automatically handles the allocation and deallocation of memory, 
+     🔔Prevention of Memory Leaks:
+        Definition: Memory leaks occur when objects that are no longer needed are not properly released, leading to a gradual depletion of available memory.
+        Benefit: Garbage collection helps in identifying  unused objects, preventing memory leaks.
+
+Q 47 what is garbage collection in java
+     🔔Java programs compile to bytecode that can be run on a Java Virtual Machine,
+     🔔When Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program.
+     🔔Eventually, some objects will no longer be needed. The garbage collector finds these unused objects and deletes them to free up memory
+     🔔In C/C++, a programmer is responsible for both the creation and destruction of objects
+     🔔Usually, programmer neglects the destruction of useless objects. Due to this negligence, at a certain point, sufficient memory may not be available to create new objects   
+     🔔But in Java, the programmer need not care for all those objects which are no longer in use.
+     🔔Garbage collector destroys these objects. The main objective of Garbage Collector is to free heap memory by destroying unreachable objects
+
+Q 48 when does jvm call finalize method
+     🔔In Java, the finalize() method is part of the Object class and is intended to be called by the garbage collector before an object is removed from memory.
+     🔔Before Garbage Collection:
+        The finalize() method is called by the garbage collector on an object when it determines that there are no more references to the object, making it eligible for garbage collection.
+    🔔The exact time when finalize() will be called is not predictable. The JVM does not guarantee that finalize() will be called immediately after an object becomes unreachable. 
+       It could happen at any point during the garbage collection process.
+    🔔Possibility of Not Being Called:
+       There is no guarantee that finalize() will be called at all. If the JVM terminates without performing garbage collection on an unreachable object, the finalize() method may never be invoked
+
+Q 49 how garbage collector manages heap in java
+     🔔The Java Garbage Collector (GC) is responsible for managing the heap memory, where all Java objects are allocated.
+     🔔The heap is divided into several regions, and the garbage collector works by tracking and collecting objects that are no longer reachable 
+     🔔Different garbage collectors use various algorithms to manage the heap:
+        1.Serial Garbage Collector:
+           Uses a single thread for both minor and major GCs.
+        2.Suitable for small applications with a single CPU.
+           Parallel Garbage Collector :
+           Uses multiple threads for minor GCs.
+        3.Concurrent Mark-Sweep (CMS) Collector:
+           Performs most of the GC work concurrently with the application threads to minimize pause times.
+           Suitable for applications that require low pause times.
+
+Q 50 define way to read/write bytes in file
+     🔔In Java, you can read and write bytes to a file using various classes provided in the java.io
+     🔔Reading bytes from a file
+           You can use FileInputStream to read bytes from a file.
+     🔔Writing bytes to a file
+           You can use FileOutputStream to write bytes to a file.
+     🔔Reading bytes from a file
+           You can use Files class with Paths to read all bytes at once
+     🔔Writing bytes to a file
+           You can use Files class with Paths to write bytes to a file
+
+Q 51 how can you guarantee that java garbage collection takes place
+     🔔In Java, garbage collection is managed by the Java Virtual Machine (JVM) and cannot be forced directly by the programmer.
+     🔔However, there are ways to suggest or request garbage collection.
+     🔔Requesting Garbage Collection
+         You can suggest garbage collection by calling System.gc() or Runtime.getRuntime().gc(). These methods request that the JVM perform garbage collection
+
+Q 52 in java if u set an object refrence to null will the garbage collector imediatey free the memory held by that object
+     🔔In Java, setting an object reference to null makes that object eligible for garbage collection, but it does not guarantee that the memory will be freed immediately.
+     🔔The Java garbage collector (GC) works on its own schedule and determines when to reclaim memory based on various factors such as the 
+         current memory usage
+         allocation rate
+         specific garbage collection algorithm in use.
+     🔔while setting an object reference to null is a necessary step to make the object eligible for garbage collection, 
+         the actual memory reclamation by the GC is not immediate and depends on the GC's schedule and behavior
+
+Q 53 what is purpose of system.gc and runtime.gc methods
+     🔔Both are same. System.gc() is effectively equivalent to Runtime.gc(). System.gc()internally calls Runtime.gc().
+     🔔The only difference is System.gc() is a class method where as Runtime.gc() is an instance method. So, System.gc() is more convenient.
+     🔔system.gc
+          the system class, there is a method called gc(). It runs the garbage collector. This method invokes the finalize() method to destroy the objects that are not used
+     🔔runtime.gc
+          The task of the Runtime gc is the same as System gc. It is a method that tells the JVM to execute the garbage collector continuously
+
+Q 54 will garbage collection guarantee program will not run out of memory
+     🔔Automatic garbage collection only means that garbage (i.e., unreferenced memory) is automatically collected (i.e., reclaimed for further use).
+         If you keep references to it, it's not garbage, and not collected.
+     🔔Garbage collection (GC) is a form of automatic memory management that attempts to reclaim memory occupied by objects that are no longer in use by the program.
+         However, it does not guarantee that a program will never run out of memory.
+     🔔While garbage collection helps manage memory more effectively and reduces the likelihood of memory-related issues, it is not a foolproof solution.
+         Developers still need to be mindful of how memory is used in their programs, optimize memory usage,
+         and handle potential memory leaks properly to ensure the program runs efficiently
+
+Q 55 what is file 
+     🔔File handling is an important part of any application.
+     🔔Java has several methods for creating, reading, updating, and deleting files.
+     🔔The File class from the java.io package, allows us to work with files.
+     🔔To use the File class, create an object of the class, and specify the filename or directory name:
+         import java.io.File;  
+         File myObj = new File("filename.txt");
+     🔔The File class has many useful methods for creating and getting information about files. For example:
+         Method	            Type	Description
+         canRead()	    Boolean	Tests whether the file is readable or not
+         canWrite()	    Boolean	Tests whether the file is writable or not
+         createNewFile()    Boolean	Creates an empty file
+         delete()      	    Boolean	Deletes a file
+         exists()	    Boolean	Tests whether the file exists
+         getName()	    String	Returns the name of the file
+         getAbsolutePath()  String	Returns the absolute pathname of the file
+         length()	    Long	Returns the size of the file in bytes
+         list()	            String[]	Returns an array of the files in the directory
+         mkdir()	    Boolean	Creates a directory
+
+Q 56 Explain some important methods of file class
+     🔔File operations are fundamental activities that involve handling files in a computer system.
+     🔔These operations are essential for reading, writing, managing, and manipulating files
+     🔔In Java, file operations are handled through the java.io and java.nio.file packages  
+       1. Creating a File
+            Description: This operation creates a new file on the disk.
+       2. Opening a File
+            Description: Before performing any operations on a file, it must be opened.
+            In Java, opening a file usually involves creating an input or output stream.
+       3. Reading from a File
+            Description: This operation reads data from an open file.
+            Methods:
+              Read Entire File: file.read()
+              Read Line by Line: file.readline()
+
+Q 57 what is purpose of native method
+     🔔The native keyword declares a method as belonging to an external compiled library which is native to the operating system
+     🔔Access to Platform-Specific Features:
+           Native methods allow Java applications to access platform-specific features and APIs that are not directly accessible through Java. 
+           This can include system calls, hardware interactions
+     🔔Use of Existing Libraries:
+           Java applications can reuse existing libraries written in other languages. This is useful 
+     🔔Low-Level System Interactions:
+           Native methods allow Java programs to perform low-level operations, such as direct memory manipulation, which are not possible with pure Java.
+           This can be critical for certain types of applications, such as those requiring direct interaction with hardware
+     🔔Implementing Functionality Not Available in Java:
+           Some functionalities that might be missing in the Java standard libraries can be implemented using native methods
+     🔔Syantx:
+           public native void sayHello();
+
+Q 58 can we consider the statement i++ as an atomic operation in java
+     🔔Not atomic
+         i++ is probably not atomic in Java 
+     🔔Although it may look like a simple, single operation, it actually involves multiple steps that can be interrupted by other threads. 
+     🔔Specifically, i++ (post-increment) translates to the following sequence of operations:
+         Read the current value of i.
+         Increment the value.
+         Write the incremented value back to i.    
+     🔔Since these steps are not performed atomically, other threads can interfere between any of these steps.
+     🔔For example, 
+         if two threads execute i++ simultaneously on a shared variable i, it's possible for both threads to read the same initial value of i, increment it,
+         and write the same incremented value back, resulting in a lost update.
+  
+Q 59 what is final blank variable in java
+     🔔A final variable in Java can be assigned a value only once, we can assign a value either in declaration or later.
+     🔔A blank final variable in Java is a final variable that is not initialized during declaration. Below is a simple example of blank final.
+         final int i;
+         i = 30;
+     🔔Blank final variables are used to create immutable objects (objects whose members can’t be changed once initialized). 
+
+Q 60 explain how java achieve abstraction
+     🔔Object-oriented programming has four pillars that are an abstraction, polymorphism, encapsulation, and inheritance. In this section, we will discuss one of them, abstraction.
+     🔔Abstraction is a feature of OOPs. The feature allows us to hide the implementation detail from the user and shows only the functionality of the programming to the user.
+          Because the user is not interested to know the implementation. It is also safe from the security point of view.
+     🔔Let's understand the abstraction with the help of a real-world example. The best example of abstraction is a car. 
+          When we derive a car, we do not know how is the car moving or how internal components are working? The same is an abstraction.
+     🔔We can achieve abstraction in two ways:
+          1.Using Abstract Class
+          2.Using Interface
+
+    1.Using Abstract Class
+          Abstract classes are the same as normal Java classes the difference is only that an abstract class uses abstract keyword while the normal Java class does not use. 
+               We use the abstract keyword before the class name to declare the class as abstract.
+          Note: Using an abstract class, we can achieve 0-100% abstraction.
+          Remember that, we cannot instantiate (create an object) an abstract class. An abstract class contains abstract methods.
+               If we want to use an abstract class, we have to inherit it from the base class.
+               If the class does not have the implementation of all the methods of the interface, we should declare the class as abstract. It provides complete abstraction. 
+          The syntax of abstract class is:
+
+              public abstract class ClassName  
+              {  
+              public abstract methodName();  
+              }  
+
+    2.Using Interface
+          In Java, an interface is similar to Java classes. The difference is only that an interface contains empty methods (methods that do not have method implementation) and variables.
+              In other words, it is a collection of abstract methods (the method that does not have a method body) .
+              The important point about an interface is that each method is public and abstract and does not contain any constructor.
+              Along with the abstraction, it also helps to achieve multiple inheritance. The implementation of these methods provided by the clients when they implement the interface.
+          Note: Using interface, we can achieve 100% abstraction
+          Features of Interface:
+              It also helps to achieve loose coupling.
+          Syntax:
+
+              public interface XYZ   
+              {  
+              public void method();  
+              }  
+           To use an interface in a class, Java provides a keyword called implements. 
+
+Q 61 how do we declare method or class abstract
+     🔔class abstract
+        The abstract class in Java cannot be instantiated (we cannot create objects of abstract classes). We use the abstract keyword to declare an abstract class
+        For example,
+            // create an abstract class
+            abstract class Language {
+            // fields and methods
+            }
+        An abstract class can have both the regular methods and abstract methods.
+
+     🔔method abstract
+        A method that doesn't have its body is known as an abstract method. We use the same abstract keyword to create abstract methods.
+        For example,
+          abstract void display();
+        The body of abstract method   is replaced by ;
+        If a class contains an abstract method, then the class should be declared abstract. Otherwise, it will generate an error
+     
+        Though abstract classes cannot be instantiated, we can create subclasses from it. We can then access members of the abstract class using the object of the subclass.
+
+Q 62 can we overload main  
+     🔔You can overload the main() method, but only public static void main(String[] args) will be used when your class is launched by the JVM
+     🔔In this section, we are going to learn how can we overload main() method in Java
+         The main() method is the starting point of any Java program.
+         The JVM starts the execution of any Java program form the main() method. Without the main() method, JVM will not execute the program
+         It is a default signature that is predefined in the JVM. It is called by JVM to execute a program line by line and ends the execution after completion of the method.
+         Here a question arises that like the other methods in Java, can we also overload the main() method.
+         The answer is, yes, we can overload the main() method. But remember that the JVM always calls the original main() method. It does not call the overloaded main() method.
+
+Q 63 why do constructors do not return value in java
+     🔔What actually happens with the constructor is that the runtime uses type data generated by the compiler to determine how much space is needed to store an object instance in memory,
+         be it on the stack or on the heap.
+     🔔This space includes all members variables . 
+          After this space is allocated, the constructor is called as an internal part of the instantiation and initialization process to initialize the contents of the fields.
+     🔔Then, when the constructor exits, the runtime returns the newly-created instance.
+          So the reason the constructor doesn't return a value is because it's not called directly by your code,
+          it's called by the memory allocation and object initialization code in the runtime.
+
+Q 64 what if main method is declared private in java 
+     🔔method main( ) can be specified as private or protected
+     🔔it will compile 
+     🔔it will run 
+     🔔but it can not be taken as entry point of your application. It will run if it is invoked from somewhere else.
+     🔔But, at the time of execution JVM does not consider this as the entry point of the program. 
+         It searches for the main method which is public, static, with return type void, and a String array as an argument.    
+         If such a method is not found, a run time error is generated
+            Error: Main method not found in class Sample, please define the main method as:
+                   public static void main(String[] args)
+
+Q 65 how do we declare member of a class static in java
+     🔔In Java, to declare a member of a class as static, you use the static keyword.
+        Static members belong to the class itself rather than to any particular instance of the class. This means that static members are shared among all instances of the class.
+     🔔A static method can be called without creating an instance of the class.
+     🔔Static Block: Used for static initialization, executed once when the class is loaded.
+     🔔Static Nested Class: A class within a class declared with static keyword. Only nested classes can be static
+
+Q 66 what is constructor enlist its different types in java
+      🔔A constructor in Java is a special method that is used to initialize objects. The constructor is called when an object of a class is created
+      🔔In Java, a Constructor is a block of codes similar to the method. It is called when an instance of the class is created.
+          At the time of calling the constructor, memory for the object is allocated in the memory. It is a special type of method that is used to initialize the object.
+          Every time an object is created using the new() keyword, at least one constructor is called
+     🔔In Java, constructors can be divided into three types:
+          1.No-Arg Constructor
+          2.Parameterized Constructor
+          3.Default Constructor
+
+    1. Java No-Arg Constructors
+          Similar to methods, a Java constructor may or may not have any parameters (arguments).
+          If a constructor does not accept any parameters, it is known as a no-argument
+
+    2. Java Parameterized Constructor
+          A Java constructor can also accept one or more parameters. Such constructors are known as parameterized constructors (constructors with parameters).
+
+    3. Java Default Constructor
+          If we do not create any constructor, the Java compiler automatically creates a no-arg constructor during the execution of the program.
+          This constructor is called the default constructor.
+          The default constructor initializes any uninitialized instance variables with default values.
+
+    🔔Constructors are invoked implicitly when you instantiate objects.
+    🔔The two rules for creating a constructor are:
+        1. The name of the constructor should be the same as the class.
+        2. A Java constructor must not have a return type.
+    🔔If a class doesn't have a constructor, the Java compiler automatically creates a default constructor during run-time.
+    🔔A constructor cannot be abstract or static or final.
+    🔔A constructor can be overloaded but can not be overridden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+     
+     
+     
+
+
+
