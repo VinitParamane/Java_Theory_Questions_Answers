@@ -720,9 +720,52 @@ Q 66 what is constructor enlist its different types in java
     🔔A constructor can be overloaded but can not be overridden.
 
 Q 67 Can we overload constructor
+     🔔Java supports Constructor Overloading in addition to overloading methods
+     🔔this() reference can be used during constructor overloading to call the default constructor implicitly from the parameterized constructor.
+     🔔The constructor calling should be first statement in the constructor body.\
+     🔔If we have defined any parameterized constructor, then the compiler will not create a default constructor. and vice versa  
+     🔔if we don’t define any constructor, the compiler creates the default constructor(also known as no-arg constructor) by default during compilation
+     🔔Recursive constructor calling is invalid in Java.
+
 Q 68 can we overload main
+     🔔Yes, We can overload the main method in java but JVM only calls the original main method, it will never call our overloaded main method
+     🔔to execute overloaded methods of main, we must call them from the original main method
+
 Q 69 What are different ways to create string objects
+     🔔two ways to create the string object in Java,
+       1.By using String Literal
+       2.By using new Keyword
+      
+         1.String object creation using string literal
+             A string Literal is created in java by using double quotes(" ").
+             Syntax
+                String str = "Java Programming";
+             Whenever we create a string literal, the Java Virtual Machine (JVM) first checks in the "string constant pool", 
+             so there are two cases:
+                 If, String Literal already exists in the pool then, in that case, a reference to the pooled instance is returned 
+                    (i.e. no new instance is created for the existing String Literal).
+                 Else, String Literal is not already existed in the pool then, in that case, a new string instance is created and placed in the pool 
+                    (i.e. new instance is created for the new String Literal).
+             String objects are stored in a special memory area known as "String Constant Pool".
+       
+         2.Creating a String object by using "new" keyword
+             Syntax
+             String str = new String("Java Programming");
+             Whenever we create a String object by using "new" keyword, The Java Virtual Machine (JVM) creates a new string object in "Heap Memory" and 
+             the literal "Java Programming" will be placed in "String Constant Pool" and the variable "str" will refer to the string object placed in "Heap Memory".
+             Strings in Java are objects of the java.lang.String class
+
 Q 70 how do we set priorities for threads
+     🔔Java being Object-Oriented works within a Multithreading environment in which the thread scheduler assigns the processor to a thread based on the priority of the thread.
+     🔔Whenever we create a thread in Java, it always has some priority assigned to it. 
+     🔔Priority can either be given by JVM while creating the thread or it can be given by the programmer explicitly. 
+     🔔public final int getPriority():
+          java.lang.Thread.getPriority() method returns the priority of the given thread.
+     🔔public final void setPriority(int newPriority):
+          java.lang.Thread.setPriority() method changes the priority of thread to the value newPriority.
+          This method throws IllegalArgumentException if the value of parameter newPriority goes beyond the minimum(1) and maximum(10) limit
+     🔔If multiple threads have the same priority, their execution order is decided by the thread scheduler
+
 Q 71 can we define private and protected modifiers for the members in interfaces
 Q 72 Does Abstract class have constructor
 Q 73 what is one dimensional array
@@ -760,6 +803,7 @@ Q 91 what is thread pool
      
      
      
+
 
 
 
