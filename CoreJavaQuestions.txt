@@ -767,9 +767,42 @@ Q 70 how do we set priorities for threads
      🔔If multiple threads have the same priority, their execution order is decided by the thread scheduler
 
 Q 71 can we define private and protected modifiers for the members in interfaces
+     🔔No, it is not possible to define private and protected modifiers for the members in interfaces in Java.
+     🔔we can say the member defined in an interface is by default public.
+     🔔If the members of the interface are private you cannot provide implementation to the methods or, cannot access the fields of it in the implementing class.
+     🔔If you try to declare the members of an interface private, a compile-time error is generated saying “modifier private not allowed here”.
+     🔔In general, the protected members can be accessed in the same class or, the class inheriting it. But, we do not inherit an interface we will implement it.
+     🔔If you try to declare the members of an interface protected, a compile-time error is generated saying “modifier protected not allowed here”.  
+
 Q 72 Does Abstract class have constructor
+     🔔Yes! Abstract classes can have constructors!
+     🔔Yes, when we define a class to be an Abstract Class it cannot be instantiated but that does not mean an Abstract class cannot have a constructor.
+
 Q 73 what is one dimensional array
+     🔔It represents a simple list of elements where each item can be accessed using a single index.
+     🔔In memory, a one-dimensional array in Java is a contiguous block of the memory locations allocated to the hold elements of the same data type
+     🔔Basic operations on a one-dimensional array is include the accessing elements, inserting elements, deleting elements, searching for elements and sorting elements
+     🔔Application of One-Dimensional Array
+         Data Storage and Retrieval
+     🔔A One-Dimensional Array is also known as 1D Array.
+       
 Q 74 Difference between thread class and runnable interface for creating a thread
+     🔔In Java, there are two ways to create threads i.e. implementing Runnable interface and extending Thread class. 
+     🔔In general, until we have a particular reason, it is always recommended to implement the Runnable interface to create new threads.
+         This way, the child class is free to extend another class, if needed.
+     🔔We should extend the Thread class only if we want to override or extend the behavior of the Thread class itself, and it is not recommended at all.
+       1.Thread Class
+           We extend the Thread class in a child class and override the run() method.
+           To run the thread, we call its start() method.
+       2.Runnable Interface
+         
+       Feature	              Runnable	                                                                         Thread
+       Implementation	   This is an Interface	                                                   This is a Class
+       Inheritanc          The child class can extend another class	                           The child class cannot extend another class
+       Code Reusability	   A single instance can be shared among multiple threads	           Each thread needs a new instance
+       Resource Sharing	   Allows sharing of resources among multiple threads	                   More difficult to share resources
+       Memory Overhead	   Lower memory overhead as no separate object is created for the thread   Higher memory overhead as each thread object has its own memory         
+
 Q 75 what role JVM plays in Java Execution flow
 Q 76 what are two relational operators that are called as equality operators? Give an example
 Q 77 Why it is not a good practice to create static variable in Java
@@ -803,6 +836,7 @@ Q 91 what is thread pool
      
      
      
+
 
 
 
