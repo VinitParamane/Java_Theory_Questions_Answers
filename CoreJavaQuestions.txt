@@ -804,6 +804,25 @@ Q 74 Difference between thread class and runnable interface for creating a threa
        Memory Overhead	   Lower memory overhead as no separate object is created for the thread   Higher memory overhead as each thread object has its own memory         
 
 Q 75 what role JVM plays in Java Execution flow
+     1.Write Code: 
+          Java code is written in .java files.
+     2.Compile:
+          The code is compiled into bytecode (.class files) by the javac compiler.
+     3.Load Bytecode: 
+          The JVM, using the ClassLoader, loads the bytecode into memory.
+          The ClassLoader is responsible for finding and loading the class based on the class name provided by the user.
+          If the class cannot be found, a ClassNotFoundException is thrown.
+          If the class is found, the JVM loads it into memory. Static methods, variables, and data from the class are stored in the Method Area, a special part of the JVM memory.
+     4.Find Entry Point:
+          The JVM looks for the main() method to start execution.
+          If the main() method is found, the execution process starts.
+     5.Execution via Interpreter or JIT:
+          Interpreter: 
+              Executes bytecode line by line (slower).
+          JIT Compiler:
+              The JIT Compiler compiles bytecode into native machine code, which is specific to the platform and machine on which the program is running.
+              It optimizes performance by using a technique called Hot Spots.
+
 Q 76 what are two relational operators that are called as equality operators? Give an example
 Q 77 Why it is not a good practice to create static variable in Java
 Q 78 It is allowed to mark a method abstract as well as final
@@ -836,6 +855,7 @@ Q 91 what is thread pool
      
      
      
+
 
 
 
