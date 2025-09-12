@@ -824,10 +824,74 @@ Q 75 what role JVM plays in Java Execution flow
               It optimizes performance by using a technique called Hot Spots.
 
 Q 76 what are two relational operators that are called as equality operators? Give an example
+     🔔In Java, the two equality operators are also:
+        1.== (equal to)
+        2.!= (not equal to)
+     🔔In Java, == and != compare primitive values directly (like int, double, char), but when used with objects (like String), they compare references(address), not contents.
+
 Q 77 Why it is not a good practice to create static variable in Java
+     1. Global State and Tight Coupling
+          Static variables introduce a global state into an application. This global state can lead to tight coupling between classes
+          When different parts of an application depend on a static variable, changes to that variable can have unpredictable effects, leading to bugs that are difficult to trace.
+     2. Thread Safety Issues
+          Static variables are shared across all instances and threads in an application. 
+          If multiple threads access and modify a static variable concurrently without proper synchronization, it can lead to inconsistent data or race conditions,
+          causing unpredictable behavior and bugs.
+     3. Reduced Flexibility and Extensibility
+          Using static variables reduces flexibility because they are tied to the class itself rather than to instances. 
+          Static variables cannot be overridden or modified easily in subclasses, limiting the ability to extend classes in meaningful ways.
+          This limits the flexibility to modify or extend behavior in subclasses.
+     4. Memory Leaks
+          Static variables remain in memory for the duration of the application’s life. 
+          If a static variable references large objects, this can lead to memory leaks or 
+          increased memory usage because the garbage collector cannot reclaim this memory until the application terminates.
+     5. Limited Scope Control
+          Since static variables are accessible anywhere within the class (and possibly outside, if public), they can be modified from unexpected places, leading to unintended side effects.
+          This lack of scope control can make debugging more difficult and reduce code reliability
+
 Q 78 It is allowed to mark a method abstract as well as final
+     🔔you cannot override final methods in Java.
+     🔔If, you still try to declare an abstract method final a compile time error is generated saying “illegal combination of modifiers: abstract and final”.
+     
 Q 79 why constructors cannot be final,static, or abstract in Java
+     1.Java constructor can not be final
+         One of the important property of java constructor is that it can not be final.
+         As we know, constructors are not inherited in java. Therefore, constructors are not subject to hiding or overriding. 
+         When there is no chance of constructor overriding, there is no chance of modification also. 
+         When there is no chance of modification, then no sense of restricting modification there. 
+         We know that the final keyword restricts further modification.
+         So a java constructor can not be final because it inherently it cannot be modified. 
+         Also, a java constructor is internally final. So again there is no need for final declaration further. 
+         if we are defining constructor as final the compiler will give an error as modifier final not allowed.
+
+     2.Java constructor can not be static 
+         One of the important property of java constructor is that it can not be static. 
+         We know static keyword belongs to a class rather than the object of a class. 
+         A constructor is called when an object of a class is created, so no use of the static constructor.
+         Another thing is that if we will declare static constructor then we can not access/call the constructor from a subclass.
+         Because we know static is allowed within a class but not by a subclass.
+ 
+         One more important reason for not declaring the constructor as static is that, 
+         we know a static member is executed first in a program just like the main method which is static and executed first.
+         But constructor is called each and every time when an object is created. 
+         But if we will declare it static then the constructor will be called before object creation.
+         So in general if we will see static and constructor are opposite to each other if we want to assign initial values for an instance variable we can use constructor and 
+         if we want to assign static variables we can use static blocks. 
+         error: modifier static not allowed here
+
+     3.Java constructor can not be abstract
+         One of the important property of java constructor is that it can not be abstract.
+         If we are declaring a constructor as abstract as we have to implement it in a child class,
+         but we know a constructor is called implicitly when the new keyword is used so it can't lack a body and also it can not be called as a normal method.
+         Also, if we make a constructor abstract then we have to provide the body later.
+         But we know constructor can not be overridden so providing body is impossible. 
+         Hence, what we will do with this abstract constructor when we can not provide implementation to it. 
+         error: modifier abstract not allowed here
+                constructor_name is abstract; cannot be instantiated
+   
 Q 80 can we overload static method
+     🔔Can we overload static methods? The answer is 'Yes'. 
+
 Q 81 Explain Encapsulation in detail
 Q 82 What is try with resource in Java 7
 Q 83 why Thread.destroy() and Thread.stop(Throwable) methods are removed in Java 11
@@ -855,6 +919,7 @@ Q 91 what is thread pool
      
      
      
+
 
 
 
