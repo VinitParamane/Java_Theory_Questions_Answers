@@ -903,7 +903,15 @@ Q 88 what are the types of relational operators in Java
 Q 89 are we allowed to override a static method in Java
 Q 90 can you create mutable string objects
 Q 91 what is thread pool
-
+Q 92 why default method is required in an interface
+Q 93 Arrange the three classes String,StringBuffer and StringBuilder in the order of efficiency for string processing operations?
+Q 94 what is difference between synchronous and asynchronous programming in multithreading
+Q 94 Explain why collection does not extend the cloneable and serializable interfaces
+Q 95 what is ternary operator?Give an example
+Q 96 what are legacy classes
+Q 97 what is try with resources in java 7
+Q 98 what is demon thread
+Q 99 how to create thread in java
 
 
 
@@ -919,6 +927,7 @@ Q 91 what is thread pool
      
      
      
+
 
 
 
