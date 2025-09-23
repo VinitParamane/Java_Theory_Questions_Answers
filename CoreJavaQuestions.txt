@@ -892,11 +892,59 @@ Q 79 why constructors cannot be final,static, or abstract in Java
 Q 80 can we overload static method
      🔔Can we overload static methods? The answer is 'Yes'. 
 
+
 Q 81 Explain Encapsulation in detail
+     🔔In Java, encapsulation is one of the core concepts of Object Oriented Programming (OOP) in which we bind the data members and methods into a single unit.
+     🔔In Java, encapsulation is implemented by declaring instance variables as private, restricting direct access.
+     🔔Public getter methods retrieve variable values, while setter methods modify them, enabling controlled access.
+     🔔Another way to think about encapsulation is, that it is a protective shield that prevents the data from being accessed by the code outside this shield. 
+     🔔In encapsulation, the variables or data of a class are hidden from any other class and can be accessed only through any member function of its own class.
+     🔔Encapsulation can be achieved by Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.
+     
 Q 82 What is try with resource in Java 7
+     🔔Syntax: Try-with-resources
+
+           try(declare resources here) {
+           // use resources
+           }
+           catch(FileNotFoundException e) {
+           // exception handling
+           }
+      
+      🔔When it comes to exceptions, there is a difference in try-catch-finally block and try-with-resources block. 
+      🔔If an exception is thrown in both try block and finally block, the method returns the exception thrown in finally block.
+      🔔For try-with-resources, if an exception is thrown in a try block and in a try-with-resources statement, then the method returns the exception thrown in the try block. 
+      🔔The exceptions thrown by try-with-resources are suppressed, i.e. we can say that try-with-resources block throws suppressed exceptions.
+
 Q 83 why Thread.destroy() and Thread.stop(Throwable) methods are removed in Java 11
+     1.Thread.stop
+       🔔The stop() method was considered unsafe. If a thread was stopped externally, all the monitors that the thread held became unlocked instantaneously.
+       🔔That could leave shared resources and variables in an unsafe, unstable meta-state.
+
+     2.Thread.destroy
+       🔔The destroy() method had the opposite problem. The method has never actually been implemented but the idea was to stop the thread without having any cleanup.
+       🔔In other words, if the thread was holding any monitors, they would stay locked forever, after a thread has been destroyed.
+
 Q 84 What is ternary operator? Give an example
+     🔔The Ternary Operator is similar to the if-else statement as it follows the same algorithm as of if-else statement but the ternary operator takes less space 
+         and helps to write the if-else statements in the shortest way possible. It is known as the ternary operator because it operates on three operands.
+     🔔The ternary operator is a conditional operator that takes three operands: 
+         a condition, a value to be returned if the condition is true, and a value to be returned if the condition is false.
+         It evaluates the condition and returns one of the two specified values based on whether the condition is true or false.
+     🔔Syntax of Ternary Operator:
+         variable = Expression1 ? Expression2 : Expression3;
+
 Q 85 What is anonymous array in Java? Give Example
+     🔔An array in Java without any name is known as an anonymous array. It is an array just for creating and using instantly.
+     🔔Properties of Anonymous Arrays:
+         We can create an array without a name. Such types of nameless arrays are called anonymous arrays.
+         The main purpose of an anonymous array is just for instant use (just for one-time usage).
+         An anonymous array is passed as an argument of a method.
+     🔔Note: For Anonymous array creation, do not mention size in []. The number of values passing inside {} will become the size.
+     🔔Syntax: 
+	 new <data type>[]{<list of values with comma separator>};
+	 Example: 
+		new int[] { 1, 2, 3, 4};  
 Q 86 Explain how you can convert an Integer to a String 
 Q 87 Explain Thread Scheduler
 Q 88 what are the types of relational operators in Java
@@ -927,6 +975,7 @@ Q 99 how to create thread in java
      
      
      
+
 
 
 
