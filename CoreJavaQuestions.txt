@@ -945,15 +945,102 @@ Q 85 What is anonymous array in Java? Give Example
 	 new <data type>[]{<list of values with comma separator>};
 	 Example: 
 		new int[] { 1, 2, 3, 4};  
+
 Q 86 Explain how you can convert an Integer to a String 
+     🔔There are certain methods for Integer to String conversions mentioned below:
+	  1.Using the toString() method of the Integer class
+	  2.Using the valueOf() method of the String class
+	  3.Using Integer(int).toString() method of Integer class
+	  4.Using concatenation with an empty string.
+    
+      1. Using toString() Method of Integer Class
+            The Integer class has a static method toString() that returns a String object representing the specified int parameter.
+            If the number is negative, the sign will be preserved.
+      2. Using valueOf() Method of String Class
+            The String class has a static method valueOf() that can be used to convert the Integer to String
+      3. Using Integer(int).toString() Method of the Integer Class
+            It is different from method 1 as proposed above, as in this method we use an instance of the Integer class to invoke its toString() method. 
+      🔔If the variable is of primitive type (int), it is better to use Integer.toString(int) or String.valueOf(int). 
+      🔔But if the variable is already an instance of Integer (wrapper class of the primitive type int)
+      4. Using Concatenation with an Empty String
+           Here, we will declare an empty string and using the '+' operator, we will simply store the resultant as a string.
+           Now by this, we are successfully able to append and concatenate these strings. 
+
+      🔔 Advanced Methods to Convert int to String
+         1.Using DecimalFormat Class
+         2.Using StringBuffer class
+         3.using StringBuilder class 
+         4.Using special radix and custom radix
+
+      1. Using DecimalFormat Class
+            DecimalFormat is a class that formats a number to a String. 
+            int e = 12345;
+            DecimalFormat df = new DecimalFormat("#,###");
+            String Str5 = df.format(e);
+            Tip: Using this method, We can specify the number of decimal places and comma separator for readability.
+      2. Using StringBuffer Class  
+            StringBuffer is a class that is used to concatenate multiple values into a String. 
+	    int f = 1234;
+            StringBuffer sb = new StringBuffer();
+            sb.append(f);
+            String str6 = sb.toString();
+      3. Using StringBuilder Class
+	    StringBuilder works similarly but is not thread-safe like StringBuffer. 
+            int g = 1234;
+            StringBuilder sb = new StringBuilder();
+            sb.append(g);
+            String str7 = sb.toString();
+
 Q 87 Explain Thread Scheduler
+     🔔The Thread Scheduler is the part of the operating system (or JVM in Java) that decides which thread should run next when there are multiple threads waiting to execute on the CPU
+     🔔Responsibilities of a Thread Scheduler
+	 CPU Allocation → Assigns CPU to one thread at a time.
+	 Context Switching → Suspends a running thread and resumes another.
+	 Fairness & Efficiency → Ensures no thread is starved while maintaining system performance.
+         Policy Enforcement → Follows scheduling algorithms like round-robin, priority-based, etc.
+
 Q 88 what are the types of relational operators in Java
-Q 89 are we allowed to override a static method in Java
-Q 90 can you create mutable string objects
-Q 91 what is thread pool
-Q 92 why default method is required in an interface
-Q 93 Arrange the three classes String,StringBuffer and StringBuilder in the order of efficiency for string processing operations?
-Q 94 what is difference between synchronous and asynchronous programming in multithreading
+     🔔Java Relational Operators are a bunch of binary operators used to check for relations between two operands, including equality, greater than, less than, etc.
+     🔔They return a boolean result after the comparison
+     Operator 1: 'Equal to' operator (==)
+         This operator is used to check whether the two given operands are equal or not. 
+         The operator returns true if the operand at the left-hand side is equal to the right-hand side, else false. 
+         Syntax: 
+              var1 == var2
+     Operator 2: 'Not equal to' Operator(!=)
+	 This operator is used to check whether the two given operands are equal or not. It functions opposite to that of the equal-to-operator. It returns true if the operand at the left-hand side is not equal to the right-hand side, else false. 
+         Syntax: 
+	     var1 != var2
+     Operator 3: 'Greater than' operator(>)
+         This checks whether the first operand is greater than the second operand or not. The operator returns true when the operand at the left-hand side is greater than the right-hand side. 
+         Syntax: 
+	     var1 > var2
+     Operator 4: 'Less than' Operator(<)
+         This checks whether the first operand is less than the second operand or not. The operator returns true when the operand at the left-hand side is less than the right-hand side. It functions opposite to that of the greater-than operator. 
+	 Syntax: 
+             var1 < var2
+     Operator 5: Greater than or equal to (>=)
+         This checks whether the first operand is greater than or equal to the second operand or not. The operator returns true when the operand at the left-hand side is greater than or equal to the right-hand side. 
+         Syntax: 
+	     var1 >= var2
+     Operator 6: Less than or equal to (<=)
+         This checks whether the first operand is less than or equal to the second operand or not. The operator returns true when the operand at the left-hand side is less than or equal to the right-hand side. 
+         Syntax: 
+             var1 <= var2
+
+Q 89 can you create mutable string objects
+     🔔Yes!
+      1. StringBuilder
+            Mutable: You can change the content after creation.
+            Not synchronized: Faster, but not thread-safe.
+      2. StringBuffer
+	    Mutable: Like StringBuilder.
+	    Synchronized: Thread-safe, can be used in multi-threaded programs.
+            Slower than StringBuilder due to synchronization overhead. 
+Q 90 what is thread pool
+Q 91 why default method is required in an interface
+Q 92 Arrange the three classes String,StringBuffer and StringBuilder in the order of efficiency for string processing operations?
+Q 93 what is difference between synchronous and asynchronous programming in multithreading
 Q 94 Explain why collection does not extend the cloneable and serializable interfaces
 Q 95 what is ternary operator?Give an example
 Q 96 what are legacy classes
@@ -975,6 +1062,7 @@ Q 99 how to create thread in java
      
      
      
+
 
 
 
