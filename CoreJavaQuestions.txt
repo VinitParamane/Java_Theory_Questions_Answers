@@ -1037,7 +1037,34 @@ Q 89 can you create mutable string objects
 	    Mutable: Like StringBuilder.
 	    Synchronized: Thread-safe, can be used in multi-threaded programs.
             Slower than StringBuilder due to synchronization overhead. 
+
 Q 90 what is thread pool
+     🔔A Thread Pool is a collection of pre-created, reusable threads that are kept ready to perform tasks. 
+     🔔Instead of creating a new thread every time you need to run something (which is costly in terms of memory and CPU), a thread pool maintains a fixed number of threads.
+     🔔When a task is submitted:
+         If a thread is free, it immediately picks up the task and runs it.
+         If all threads are busy, the task waits in a queue until a thread becomes available.
+         After finishing a task, the thread does not die. It goes back to the pool and waits for the next task.
+     🔔Real World Analogy
+         Think of a call center:
+             A company has 10 operators (thread pool size = 10).
+             When customers call, available operators handle them.
+             If all operators are busy, new customers wait in a queue until someone is free.
+             Operators don’t leave after one call, they stay and handle more calls.
+    🔔Benefits of Thread Pool
+           Better Performance: 
+               Threads are reused instead of being created and destroyed repeatedly.
+           Faster Response Time:
+               Tasks don’t need to wait for a new thread to be created.
+           Reusability:
+               Threads remain alive after finishing tasks and are reused for future tasks.
+           Resource Management:
+               Limits the number of concurrent threads, preventing OutOfMemoryError or CPU overload.
+    🔔Thread Pool methods
+	   Method				Purpose
+       submit(Runnable task)	        Adds a task into the queue for execution by worker threads.
+       shutdown()	                Gracefully stops the thread pool → no new tasks accepted, workers stop after finishing current tasks.
+
 Q 91 why default method is required in an interface
 Q 92 Arrange the three classes String,StringBuffer and StringBuilder in the order of efficiency for string processing operations?
 Q 93 what is difference between synchronous and asynchronous programming in multithreading
@@ -1062,6 +1089,7 @@ Q 99 how to create thread in java
      
      
      
+
 
 
 
