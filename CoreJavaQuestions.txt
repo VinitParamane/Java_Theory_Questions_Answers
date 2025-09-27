@@ -1066,9 +1066,56 @@ Q 90 what is thread pool
        shutdown()	                Gracefully stops the thread pool → no new tasks accepted, workers stop after finishing current tasks.
 
 Q 91 why default method is required in an interface
+     🔔Backward compatibility
+         Before Java 8, interfaces could only have abstract methods.
+         If you added a new method to an existing interface, all implementing classes would break until they implemented the new method.
+         With default, you can add new methods without forcing changes in old classes.
+     🔔Multiple inheritance of behavior
+         Java doesn’t allow multiple inheritance of classes (to avoid the diamond problem).
+         But with default methods, an interface can carry behavior, and a class can inherit it from multiple interfaces.
+
 Q 92 Arrange the three classes String,StringBuffer and StringBuilder in the order of efficiency for string processing operations?
+     String                                        StringBuilder                StringBuffer
+     Can be slower for many concatenations         High Performance             Low Performance
+
 Q 93 what is difference between synchronous and asynchronous programming in multithreading
+     🔔Synchronous Programming
+	 Definition: Tasks are executed one after another, in a sequence.
+	 A task must finish before the next task starts.
+     🔔Asynchronous Programming
+	 Definition: Tasks are executed independently, without waiting for others to finish.
+	 Multiple tasks can run concurrently on different threads.
+
 Q 94 Explain why collection does not extend the cloneable and serializable interfaces
+     🔔Why Not Cloneable?
+         1.Ambiguous Meaning of "Clone": 
+             If Collection extended Cloneable, what would clone() be required to do?
+                 Shallow Copy: 
+                     Should it only clone the collection's internal structure but keep references to the original elements? This is what ArrayList's clone method does.
+                 Deep Copy: 
+                     Should it create a new collection and new copies of every element inside it?
+             Forcing one behavior would be wrong for many situations. The decision between a shallow and a deep copy is highly dependent on the context and the type of objects the collection holds. 
+             Forcing this decision at the interface level is too restrictive.
+         2.Not All Collections Should be Cloned:
+              Many collection implementations are simply not meant to be cloned. For example, a collection could be a "view" of another data structure (like the key set of a Map)
+              Cloning such a collection doesn't make logical sense. Forcing every collection implementation to support cloning would be an impractical burden.
+           By not extending Cloneable, the framework leaves the decision to the authors of the concrete implementation classes (like ArrayList, HashSet, etc.),
+           who can choose to implement it if it makes sense for their specific data structure.
+
+     🔔Why Not Serializable?
+          Serializable is also a marker interface, indicating that an object's state can be converted to a byte stream. 
+          The reasoning for excluding it from the Collection interface is similar to Cloneable
+             1.Not All Collections Can or Should be Serializable:
+                   A collection might contain non-serializable objects,
+                   If Collection mandated Serializable, you could never create a collection to hold such objects. This would severely limit the usefulness of the entire framework.
+             2.Implementation-Specific Logic:
+                  The way a collection is serialized often depends heavily on its internal data structure. 
+       	          For example, LinkedList has a custom serialization logic to write out its elements sequentially,
+       	 	  A generic requirement at the interface level cannot account for these necessary, implementation-specific optimizations.
+             3.Element Requirement:
+  		  If the collection itself is Serializable, it's generally expected that its elements are also Serializable. 
+       		  Forcing this on the Collection interface would mean that every object you ever want to put in any collection would have to implement Serializable. 
+       		  This is an incredibly impractical and restrictive requirement.
 Q 95 what is ternary operator?Give an example
 Q 96 what are legacy classes
 Q 97 what is try with resources in java 7
@@ -1089,6 +1136,7 @@ Q 99 how to create thread in java
      
      
      
+
 
 
 
