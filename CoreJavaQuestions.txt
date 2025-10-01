@@ -1136,7 +1136,46 @@ Q 95 what is demon thread
                                                     If the parent thread is a daemon, the child thread is also a daemon, 
                                                     and if the parent thread is a non-daemon, the child thread is also a non-daemon.
 
-Q 96 how to create thread in java
+ 🔔Thread can be referred to as a lightweight process.
+     🔔The slave thread is the last thread to complete the execution.
+     🔔A thread can programmatically be created by:
+	 Implementing the java.lang.Runnable interface.
+ 	 Extending the java.lang.Thread class.
+	 Using Lambda Expressions
+	 Using ExecutorService
+      1. Thread Class
+	    The Thread class provides constructors and methods for creating and operating on threads. The thread extends the Object and implements the Runnable interface.
+	    Method:
+	        public void start()
+            Use Case: 
+                Suitable for simple applications for creating a thread that performs a specific task.
+      2. Runnable Interface
+            Any class with instances that are intended to be executed by a thread should implement the Runnable interface. The Runnable interface has only one method, which is called run().
+            Use Case: 
+                It is suitable for cases where you want to separate the task from the thread management. Also, Runnable is a interface so allows us to perform multiple inheritance.
+      3. Using Lambda Expressions
+            Lambda Expressions are very useful for creating the Threads in the cases when the operations to be performed are limited.
+	    Use Case: 
+                Used for Threads performing simple tasks.
+
+                     Thread thread1 = new Thread(() -> {
+               	     // Operations Performed for thread1
+                     });
+                     thread1.start(); 
+      4. Using ExecutorService (for Managing Thread Pools)
+	    The ExecutorService framework provides a higher-level way to manage threads. It allows you to create a pool of threads and manage their execution.
+	    Use Case:
+              Used for concurrent execution of multiple threads
+    
+                   ExecutorService threads = Executors.newFixedThreadPool(2); 
+                   threads.submit(() -> {
+                        System.out.println("Task 1 is running in " + Thread.currentThread().getName());
+                        });
+
+                   threads.submit(() -> {
+                        System.out.println("Task 2 is running in " + Thread.currentThread().getName());
+                        });
+                   threads.shutdown(); 
 
 
 
@@ -1148,6 +1187,7 @@ Q 96 how to create thread in java
      
      
      
+
 
 
 
